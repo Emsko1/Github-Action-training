@@ -5,6 +5,9 @@ jobs:
     steps:
       - run: echo "hello world" > note.txt
       - run: cat note.txt
+
+      - name: Display file    
+        run: cat note.txt
       
       - name: upload artifact
         uses: actions/upload-artifact@v4
@@ -19,5 +22,6 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
           name: note-file
-           
-     - run: cat note.txt
+
+     - name: Display file    
+       run: cat note.txt
