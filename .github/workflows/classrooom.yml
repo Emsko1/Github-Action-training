@@ -3,9 +3,21 @@ jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "A" > note.txt
+      - run: echo "hello world" > note.txt
       - run: cat note.txt
+      
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+           name: note-file
+           path: note.txt
   two:
     runs-on: ubuntu-latest
+    needs: one
     steps:
+     - name: download artifact
+       uses: actions/upload-artifact@v4
+       with:
+          name: note-file
+           
      - run: cat note.txt
