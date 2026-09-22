@@ -1,27 +1,34 @@
-on: [push]
+name: Classwork
+ 
+on:
+  push:
+ 
 jobs:
   one:
     runs-on: ubuntu-latest
+ 
     steps:
-      - run: echo "hello world" > note.txt
-      - run: cat note.txt
-
-      - name: Display file    
+      - name: Create file
+        run: echo "Saflos is good" > note.txt
+ 
+      - name: Display file
         run: cat note.txt
-      
-      - name: upload artifact
+ 
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-           name: note-file
-           path: note.txt
+          name: note-file
+          path: note.txt
+ 
   two:
     runs-on: ubuntu-latest
     needs: one
+ 
     steps:
-     - name: download artifact
-       uses: actions/upload-artifact@v4
-       with:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
           name: note-file
-
-     - name: Display file    
-       run: cat note.txt
+ 
+      - name: Display file
+        run: cat note.txt
