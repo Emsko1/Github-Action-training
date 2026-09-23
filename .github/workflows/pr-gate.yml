@@ -16,4 +16,4 @@ jobs:
         with:
           python-version: '3.12'
       - name: Run the check
-        run: check.py
+        run: python check.py
