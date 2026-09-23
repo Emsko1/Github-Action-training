@@ -1,7 +1,7 @@
 name: PR gate
 on:
    pull_request:
-    branches: [main]
+    branches: [task2]
    workflow_dispatch:
 jobs: 
    check:
